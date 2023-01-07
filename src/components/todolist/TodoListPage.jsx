@@ -21,8 +21,8 @@ const TodoListPage = () => {
   ]);
   const [doingList, setDoingList] = useState([
     {
-      title: "키 178 찍는 중",
-      content: "성장판 열일.",
+      title: "사진 찍는 중",
+      content: "노량진수산....",
       name: "강영민",
     },
   ]);
