@@ -1,12 +1,14 @@
 import React from "react";
+import NoTaskList from "./NoTaskList";
 
 const TaskListSection = (props) => {
   // 구조 분해 할당
   const { bigTitle, taskList, setTaskList } = props;
 
   return (
-    <section>
+    <section className="border rounded-md shadow-md p-8">
       <h1 className="text-2xl font-bold">{bigTitle}</h1>
+      {taskList.length === 0 && <NoTaskList />}
       <ul className="flex flex-col py-4">
         {taskList.map((item, index, array) => (
           <li
