@@ -1,45 +1,27 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import TopBar from "./components/layouts/TopBar";
+import ProtectedRoutes from "./components/routes/ProtectedRoutes";
+import UnauthenticatedRoutes from "./components/routes/UnauthenticatedRoutes";
 
 function App() {
-  const [count, setCount] = useState(0)
+  // 지금은 여기서 그냥 true, false 전환으로.
+  const [isAuthenticated, setAuthenticated] = useState(false);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <TopBar
+        isAuthenticated={isAuthenticated}
+        setAuthenticated={setAuthenticated}
+      />
+      {
+        // short circuit 설명은 나중에.
+        // 지금 이해할 동작: 이게 리액트에서 if 대신 쓴다고 우선 역할부터 이해.
+        isAuthenticated && <ProtectedRoutes />
+      }
+      {!isAuthenticated && <UnauthenticatedRoutes />}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
