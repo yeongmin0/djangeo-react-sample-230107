@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.my-form-card {
+  @apply w-[50vw] min-w-[20rem] flex flex-col gap-8 p-8 border rounded-md shadow-md;
+}

@@ -8,7 +8,7 @@ const LoginPage = () => {
     //
     <div className="min-h-screen flex flex-col justify-center items-center">
       <form
-        className="w-[50vw] min-w-[20rem] flex flex-col gap-8 p-8 border rounded-md shadow-md"
+        className="my-form-card"
         onSubmit={(event) => {
           event.preventDefault();
         }}
