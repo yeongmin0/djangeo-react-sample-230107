@@ -3,6 +3,7 @@ const Path = {
   TODOLIST: "/todo",
   LOGIN: "/login",
   UI: "/ui",
+  ERROR404: "/404",
 };
 
 Object.freeze(Path); // 변경 방지(한 뎁스까지만)
