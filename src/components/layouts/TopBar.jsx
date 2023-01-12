@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../../store/auth/useAuth";
 
 const TopBar = (props) => {
-  const { isAuthenticated, setAuthenticated } = props;
+  const { isAuthenticated, login, logout } = useAuth();
 
   return (
     <header className="w-full h-32 border-b shadow-md grid grid-cols-6 gap-8 items-center">
@@ -21,11 +22,16 @@ const TopBar = (props) => {
       <div className="col-span-2">
         <div className="h-10 w-10 bg-black rounded-full" />
         <button
+          className="border border-dark rounded-md px-2 py-1 uppercase"
           onClick={() => {
-            setAuthenticated(!isAuthenticated);
+            if (isAuthenticated) {
+              logout();
+            } else {
+              login();
+            }
           }}
         >
-          (임시)인증전환
+          {isAuthenticated ? "Logout" : "Login"}
         </button>
       </div>
     </header>
